@@ -1,0 +1,50 @@
+# ----------- Share
+model_path           : models/feature-sd-10
+train_path           : data/nyt/train.features
+dev_path             : data/nyt/dev.features
+test_path            : data/nyt/test.features
+# Each row is a unique entity
+entity_path          : data/nyt/dict.entity
+# Each row is "[entity]\t[its frequency]"
+entity_frequency_path: data/nyt/dict.ent_wf
+# Each row is a unique word
+word_path            : data/nyt/dict.word
+# Each row is an unque entity type
+entity_type_path     : data/nyt/dict.enttype
+# Each row is a relation type
+relation_path        : data/nyt/dict.relation
+# Feature dictionary
+feature_path         : data/nyt/dict.features
+
+# Task setting
+n_rels               : 10
+
+# Training hyper-parameters
+k_samples            : 5
+lr                   : 0.005
+weight_decay         : 0.0000001
+freq_scale           : 0.75
+ent_embdim           : 10
+
+# Loss coefficient
+loss_coef_alpha      : 0.01
+loss_coef_beta       : 0.02
+
+# Training
+batchsize            : 100
+n_epochs             : 10
+patience             : 10
+
+# ----------- 
+# EType
+
+
+# Feature
+ignored_features      : 
+
+
+# PCNN
+max_len              : 
+word_embdim          : 
+n_filters            : 
+
