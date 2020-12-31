@@ -66,6 +66,10 @@ python -u -m ure.etypeplus.main   --config models/etypeplus.yml --mode test
 There is a mistake, it is **entity dimension** in link predictor, we use the same dimension of `10` for all methods.
 (There is no entity type in PCNN.)
 
+**Typos in the paper**
+Appendix A., in the second paragraph, the number of relation labels in NYT-FB should be 262 (253 in the paper).
+Same for the caption of Figure 2a, NYT-FB has 262 relation types in total.
+The last x axis label of Figure 2a. should be "each of the rest 249 relation types".
 
 
 ## Citation
