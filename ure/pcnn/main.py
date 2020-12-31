@@ -12,7 +12,7 @@ import numpy as np
 import ure.utils as utils
 from ure.dataset import TSVDataset
 from ure.hyperparams import parse_args
-from ure.train_eval import load_vocabularies, train
+from ure.train_eval import load_vocabularies, train, test
 from ure.pcnn.encoder import Encoder
 from ure.rel_dist import RelDist
 from ure.vocabulary import Vocabulary
