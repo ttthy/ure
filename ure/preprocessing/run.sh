@@ -16,10 +16,9 @@ awk -F '\t' '{if($9!="") print $0}' $TEST_PATH > $TEST_PATH.filtered
 # Build Entity type vocab
 cut -f4 $TRAIN_PATH | tr "-" "\n" | sort | uniq > $ENTITY_TYPE
 # Build word vocab
-#cut -f7 -d$'\t' $TRAIN_PATH | tr " " "\n" | sort | uniq -c | sed 's/^[ ]\+\([0-9]\+\) /\1\t/g' | awk -F '\t' '{printf("%s\t%s\n", $2, $1)}' > $VOCAB_FILE
 cut -f7 -d$'\t' $TRAIN_PATH | tr " " "\n" | sort | uniq > $VOCAB_FILE
 # Build entity vocab & frequency
-awk -F '\t' '{printf("%s\n%s\n", $2, $3)}' $TRAIN_PATH | sort | uniq -c | sort -nr | sed 's/^[ ]\+\([0-9]\+\) /\1\t/g' | awk -F '\t' '{printf("%s\t%s\n", $2, $1)}' > $ENTITY_FREQUENCY
+awk -F '\t' '{printf("%s\n%s\n", $2, $3)}' $TRAIN_PATH | sort | uniq -c | sed 's/^[ ]\+\([0-9]\+\) /\1\t/g' | awk -F '\t' '{printf("%s\t%s\n", $2, $1)}' > $ENTITY_FREQUENCY
 cut -f1 $ENTITY_FREQUENCY > $ENTITY
 # Build relation vocab
 cut -f9 $TRAIN_PATH | grep . | sort | uniq > $RELATION_PATH
