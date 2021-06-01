@@ -262,17 +262,7 @@ def loadTACRED(fileName):
     return relationExamples
 
 
-def get_lexicon():
-    import argparse
-    import random
-    import os
-    parser = argparse.ArgumentParser()
-    parser.add_argument('-i', '--input_file', required=True)
-    parser.add_argument('-l', '--lexicon_file', required=True)
-    parser.add_argument('-o', '--output_file', required=True)
-    parser.add_argument('-t', '--threshold', default=0)
-    args = parser.parse_args()
-
+def get_lexicon(args):
     input_file, lexicon_file, output_file = args.input_file, args.lexicon_file, args.output_file
 
     relationExamples = loadExamples(input_file)
@@ -299,14 +289,7 @@ def get_lexicon():
             f.write('{}\n'.format(v))
 
 
-def get_features():
-    import argparse
-    parser = argparse.ArgumentParser()
-    parser.add_argument('-i', '--input_file', required=True)
-    parser.add_argument('-l', '--lexicon_file', required=True)
-    parser.add_argument('-o', '--output_file', required=True)
-    args = parser.parse_args()
-
+def get_features(args):
     input_file, lexicon_file, output_file = args.input_file, args.lexicon_file, args.output_file
 
     relationLexicon = FeatureLexicon()
@@ -330,6 +313,18 @@ def get_features():
 
 
 if __name__ == "__main__":
-    #get_lexicon()
-    get_features()
+    import argparse
+    import random
+    import os
+    parser = argparse.ArgumentParser()
+    parser.add_argument('-i', '--input_file', required=True)
+    parser.add_argument('-l', '--lexicon_file', required=True, help="generate by using argument --generate_lexicon")
+    parser.add_argument('-o', '--output_file', required=True)
+    parser.add_argument('-t', '--threshold', default=0)
+    parser.add_argument('--generate_lexicon', action="store_true")
 
+    args = parser.parse_args()
+    if args.generate_lexicon:
+        get_lexicon(args)
+    else:
+        get_features(args)
