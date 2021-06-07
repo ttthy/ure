@@ -26,6 +26,11 @@ bash ure/preprocessing/run.sh
 ```
 
 We also provide the file for feature extraction
+To generate the lexicon_file:
+```
+python ure/preprocessing/feature_extractor.py --generate_lexicon --input_file [file] --lexicon_file [file] --output_file [file] --threshold [occurrence threshold]
+```
+To generate features:
 ```
 python ure/preprocessing/feature_extractor.py --input_file [file] --lexicon_file [file] --output_file [file] --threshold [occurrence threshold]
 ```
