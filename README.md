@@ -45,7 +45,7 @@ EType+: B3 usually achieves 41% after one epoch
 python -u -m ure.etypeplus.main  --config models/etypeplus.yml
 ```
 
-Feature [Marcheggiani and Titov](www.aclweb.org/anthology/Q16-1017.pdf): expect to get B3 around 32-33% after one epoch
+Feature [Marcheggiani and Titov](https://aclanthology.org/Q16-1017.pdf): expect to get B3 around 32-33% after one epoch
 ```
 python -u -m ure.feature.main --config models/feature.yml
 ```
